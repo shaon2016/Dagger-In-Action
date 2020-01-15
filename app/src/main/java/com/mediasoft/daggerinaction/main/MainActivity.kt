@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mediasoft.daggerinaction.R
+import com.mediasoft.daggerinaction.getViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -30,7 +31,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initVar() {
-        mainVM = ViewModelProviders.of(this).get(MainVM::class.java)
-
+        // mainVM = ViewModelProviders.of(this).get(MainVM::class.java)
+        mainVM = getViewModel {
+            MainVM()
+        }
     }
 }
