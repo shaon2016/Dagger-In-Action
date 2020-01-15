@@ -6,6 +6,10 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import javax.inject.Inject
 
+/**
+ * Created by "Ashiq" on 01/15/2020.
+ */
+
 class MyApp : Application(), HasAndroidInjector {
 
     @Inject

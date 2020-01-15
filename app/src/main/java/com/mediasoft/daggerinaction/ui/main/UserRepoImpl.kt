@@ -1,16 +1,19 @@
-package com.mediasoft.daggerinaction.main
+package com.mediasoft.daggerinaction.ui.main
 
 import android.annotation.SuppressLint
-import android.util.Log
-import com.mediasoft.daggerinaction.LoadDataCallback
-import com.mediasoft.daggerinaction.RestApiClient
+import com.mediasoft.daggerinaction.util.LoadDataCallback
 import com.mediasoft.daggerinaction.model.User
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class UserRepoImpl : UserRepo {
-    private val userService = RestApiClient.getRetrofit().create(UserService::class.java)
+/**
+ * Created by "Ashiq" on 01/15/2020.
+ */
+
+class UserRepoImpl @Inject constructor(private val userService : UserService): UserRepo {
+  //  private val userService = RestApiClient.getRetrofit().create(UserService::class.java)
     private val compositeDisposable = CompositeDisposable()
 
     @SuppressLint("CheckResult")

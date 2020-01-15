@@ -1,22 +1,24 @@
-package com.mediasoft.daggerinaction.main
+package com.mediasoft.daggerinaction.ui.main
 
-import android.annotation.SuppressLint
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.mediasoft.daggerinaction.LoadDataCallback
-import com.mediasoft.daggerinaction.base.BaseViewModel
+import com.mediasoft.daggerinaction.util.LoadDataCallback
 import com.mediasoft.daggerinaction.model.User
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class MainVM(private val userRepoImpl: UserRepoImpl) : ViewModel() {
+/**
+ * Created by "Ashiq" on 01/15/2020.
+ */
+
+class MainVM @Inject constructor(private val userRepoImpl: UserRepoImpl) : ViewModel() {
 
     private val usersLive_ = MutableLiveData<List<User>>()
     val usersLive: LiveData<List<User>> get() = usersLive_
 
     init {
-        userRepoImpl.getUsers(object : LoadDataCallback<User> {
+        userRepoImpl.getUsers(object :
+            LoadDataCallback<User> {
             override fun onDataLoaded(data: List<User>) {
                 usersLive_.value = data
             }

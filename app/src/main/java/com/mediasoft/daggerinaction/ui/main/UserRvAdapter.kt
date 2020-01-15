@@ -1,4 +1,4 @@
-package com.mediasoft.daggerinaction.main
+package com.mediasoft.daggerinaction.ui.main
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mediasoft.daggerinaction.R
 import com.mediasoft.daggerinaction.model.User
 import kotlinx.android.synthetic.main.rv_user_row.view.*
+
+/**
+ * Created by "Ashiq" on 01/15/2020.
+ */
 
 class UserRvAdapter(private val users: List<User>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
