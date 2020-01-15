@@ -3,12 +3,9 @@ package com.mediasoft.daggerinaction.main
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mediasoft.daggerinaction.R
-import com.mediasoft.daggerinaction.RestApiClient
-import com.mediasoft.daggerinaction.UserService
-import com.mediasoft.daggerinaction.getViewModel
+import com.mediasoft.daggerinaction.extensions.getViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

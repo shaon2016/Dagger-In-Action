@@ -1,12 +1,8 @@
 package com.mediasoft.daggerinaction.main
 
 import android.annotation.SuppressLint
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.mediasoft.daggerinaction.RestApiClient
-import com.mediasoft.daggerinaction.UserService
 import com.mediasoft.daggerinaction.base.BaseViewModel
 import com.mediasoft.daggerinaction.model.User
 import io.reactivex.android.schedulers.AndroidSchedulers

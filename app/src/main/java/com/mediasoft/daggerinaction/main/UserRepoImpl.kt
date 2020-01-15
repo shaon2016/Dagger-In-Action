@@ -1,7 +1,6 @@
 package com.mediasoft.daggerinaction.main
 
 import com.mediasoft.daggerinaction.RestApiClient
-import com.mediasoft.daggerinaction.UserService
 import com.mediasoft.daggerinaction.model.User
 import io.reactivex.Observable
 

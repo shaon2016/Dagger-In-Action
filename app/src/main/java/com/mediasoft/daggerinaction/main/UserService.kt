@@ -1,4 +1,4 @@
-package com.mediasoft.daggerinaction
+package com.mediasoft.daggerinaction.main
 
 import com.mediasoft.daggerinaction.model.User
 import io.reactivex.Observable

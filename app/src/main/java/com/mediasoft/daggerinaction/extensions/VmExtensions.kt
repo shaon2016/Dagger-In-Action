@@ -1,4 +1,4 @@
-package com.mediasoft.daggerinaction
+package com.mediasoft.daggerinaction.extensions
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
