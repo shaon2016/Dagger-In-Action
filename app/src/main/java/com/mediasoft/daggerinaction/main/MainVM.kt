@@ -12,8 +12,7 @@ import com.mediasoft.daggerinaction.model.User
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class MainVM : BaseViewModel() {
-    val userService = RestApiClient.getRetrofit().create(UserService::class.java)
+class MainVM(private val userRepoImpl: UserRepoImpl) : BaseViewModel() {
 
     private val usersLive_ = MutableLiveData<List<User>>()
     val usersLive: LiveData<List<User>> get() = usersLive_
@@ -24,8 +23,7 @@ class MainVM : BaseViewModel() {
 
     @SuppressLint("CheckResult")
     private fun getUsers() {
-
-        userService.users().subscribeOn(Schedulers.io())
+        userRepoImpl.users().subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe {
                 compositeDisposable.add(it)

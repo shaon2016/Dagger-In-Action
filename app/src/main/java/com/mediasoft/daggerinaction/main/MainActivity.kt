@@ -6,6 +6,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mediasoft.daggerinaction.R
+import com.mediasoft.daggerinaction.RestApiClient
+import com.mediasoft.daggerinaction.UserService
 import com.mediasoft.daggerinaction.getViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -32,8 +34,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun initVar() {
         // mainVM = ViewModelProviders.of(this).get(MainVM::class.java)
+        val userService = RestApiClient.getRetrofit().create(UserService::class.java)
+
+        val userRepoImpl = UserRepoImpl(userService)
         mainVM = getViewModel {
-            MainVM()
+            MainVM(userRepoImpl)
         }
     }
 }
