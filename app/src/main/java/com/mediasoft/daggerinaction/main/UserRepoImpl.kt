@@ -15,19 +15,18 @@ class UserRepoImpl : UserRepo {
 
     @SuppressLint("CheckResult")
     override fun getUsers(callBack: LoadDataCallback<User>) {
-        compositeDisposable.add(userService.users().subscribeOn(Schedulers.io())
+        val disposable = userService.users().subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ users ->
                 callBack.onDataLoaded(users)
             }, {
                 callBack.onDataNotAvailable()
                 it.printStackTrace()
-            }))
-
+            })
+        compositeDisposable.add(disposable)
     }
 
     override fun clear() {
-        Log.d("DATATAG", "Called")
         compositeDisposable.dispose()
     }
 
