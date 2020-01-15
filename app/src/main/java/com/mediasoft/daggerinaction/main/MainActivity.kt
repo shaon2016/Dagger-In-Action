@@ -34,11 +34,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun initVar() {
         // mainVM = ViewModelProviders.of(this).get(MainVM::class.java)
-        val userService = RestApiClient.getRetrofit().create(UserService::class.java)
+        //val userService = RestApiClient.getRetrofit().create(UserService::class.java)
 
-        val userRepoImpl = UserRepoImpl(userService)
         mainVM = getViewModel {
-            MainVM(userRepoImpl)
+            MainVM(UserRepoImpl())
         }
     }
 }
